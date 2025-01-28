@@ -22,12 +22,6 @@
 		jig1wl - jig
 		jig1wr - jig
 
-		jig2c - jig
-		jig2b - jig
-		jig2t - jig
-		jig2wl - jig
-		jig2wr - jig
-
 		beluga1 - beluga
 		beluga2 - beluga
 		beluga3 - beluga
@@ -58,13 +52,13 @@
 		(next-arrival beluga2 beluga3)
 		( = (to-process-parts beluga3) 0)
 
-		(= (unload-process beluga1) 2)
-		(= (load-process beluga1) 2)
+		(= (unload-process beluga1) 3)
+		(= (load-process beluga1) 3)
 
 		(= (unload-process beluga2) 3)
 		(= (load-process beluga2) 3)
 
-		(= (unload-process beluga3) 2)
+		(= (unload-process beluga3) 1)
 		(= (load-process beluga3) 2)
 		
 
@@ -91,21 +85,69 @@
 		(= (swap-stack-count jig0b fside) 0)
 
 		(empty jig0t)
+        (outgoing jig0t beluga1)
 		(= (size jig0t) 1)
 		(= (empty-size jig0t) 1)
+        (= (load-order jig0t) 3)		
+		(= (swap-unstack-count jig0t bside) 0)
+		(= (swap-unstack-count jig0t fside) 1)
+		(= (swap-stack-count jig0t bside) 1)
+		(= (swap-stack-count jig0t fside) 0)
 
-		(in jig1b beluga1)
+
+        ; incoming in beluga1
+        (in jig0wl beluga1)
+		(part-of jig0wl plA1)
+		(= (size jig0wl) 3)
+		(= (empty-size jig0wl) 2)
+		(= (unload-order jig0wl) 3)
+		(= (process-order jig0wl) 7)
+		(= (swap-unstack-count jig0wl bside) 1)
+		(= (swap-unstack-count jig0wl fside) 0)
+		(= (swap-stack-count jig0wl bside) 0)
+		(= (swap-stack-count jig0wl fside) 1)
+
+        (in jig1b beluga1)
 		(part-of jig1b plA1)
 		(outgoing jig1b beluga1)
 		(= (size jig1b) 3)
 		(= (empty-size jig1b) 2)
 		(= (unload-order jig1b) 2)
 		(= (load-order jig1b) 1)
-		(= (process-order jig1b) 6)
+		(= (process-order jig1b) 5)
 		(= (swap-unstack-count jig1b bside) 1)
 		(= (swap-unstack-count jig1b fside) 0)
 		(= (swap-stack-count jig1b bside) 0)
 		(= (swap-stack-count jig1b fside) 1)
+
+        (in jig0wr beluga1)
+		(part-of jig0wr plA1)
+		(outgoing jig0wr beluga2)
+		(= (size jig0wr) 3)
+		(= (empty-size jig0wr) 2)
+		(= (unload-order jig0wr) 1)
+		(= (load-order jig0wr) 3)
+		(= (process-order jig0wr) 6)
+		(= (swap-unstack-count jig0wr bside) 1)
+		(= (swap-unstack-count jig0wr fside) 0)
+		(= (swap-stack-count jig0wr bside) 0)
+		(= (swap-stack-count jig0wr fside) 1)
+
+
+
+        ; incoming in beluga2
+        (in jig1c beluga2)
+		(part-of jig1c plA1)
+		(outgoing jig1c beluga3)
+		(= (size jig1c) 3)
+		(= (empty-size jig1c) 2)
+		(= (unload-order jig1c) 3)
+		(= (load-order jig1c) 1)
+		(= (process-order jig1c) 3)
+		(= (swap-unstack-count jig1c bside) 1)
+		(= (swap-unstack-count jig1c fside) 0)
+		(= (swap-stack-count jig1c bside) 0)
+		(= (swap-stack-count jig1c fside) 1)
 
 		(in jig1wl beluga2)
 		(part-of jig1wl plA1)
@@ -114,12 +156,27 @@
 		(= (empty-size jig1wl) 4)
 		(= (unload-order jig1wl) 2)
 		(= (load-order jig1wl) 2)
-		(= (process-order jig1wl) 2)
+		(= (process-order jig1wl) 1)
 		(= (swap-unstack-count jig1wl bside) 1)
 		(= (swap-unstack-count jig1wl fside) 0)
 		(= (swap-stack-count jig1wl bside) 0)
 		(= (swap-stack-count jig1wl fside) 1)
 
+        (in jig1t beluga2)
+		(part-of jig1t plA1)
+		(outgoing jig1t beluga2)
+		(= (size jig1t) 2)
+		(= (empty-size jig1t) 1)
+		(= (unload-order jig1t) 1)
+		(= (load-order jig1t) 1)
+		(= (process-order jig1t) 4)
+		(= (swap-unstack-count jig1t bside) 1)
+		(= (swap-unstack-count jig1t fside) 0)
+		(= (swap-stack-count jig1t bside) 0)
+		(= (swap-stack-count jig1t fside) 1)
+
+
+        ; incoming in beluga3
 		(in jig1wr beluga3)
 		(part-of jig1wr plA1)
 		; (outgoing jigw beluga3)
@@ -127,80 +184,25 @@
 		(= (empty-size jig1wr) 4)
 		(= (unload-order jig1wr) 1)
 		; (= (load-order jigw) 1)
-		(= (process-order jig1wr) 3)
+		(= (process-order jig1wr) 2)
 		(= (swap-unstack-count jig1wr bside) 1)
 		(= (swap-unstack-count jig1wr fside) 0)
 		(= (swap-stack-count jig1wr bside) 0)
 		(= (swap-stack-count jig1wr fside) 1)
 
-		(in jig1t beluga2)
-		(part-of jig1t plA1)
-		(outgoing jig1t beluga2)
-		(= (size jig1t) 2)
-		(= (empty-size jig1t) 1)
-		(= (unload-order jig1t) 1)
-		(= (load-order jig1t) 1)
-		(= (process-order jig1t) 5)
-		(= (swap-unstack-count jig1t bside) 1)
-		(= (swap-unstack-count jig1t fside) 0)
-		(= (swap-stack-count jig1t bside) 0)
-		(= (swap-stack-count jig1t fside) 1)
-
-
-		; airplane 2
-		(in jig2c beluga2)
-		(part-of jig2c plA1)
-		(outgoing jig2c beluga3)
-		(= (size jig2c) 3)
-		(= (empty-size jig2c) 2)
-		(= (unload-order jig2c) 3)
-		(= (load-order jig2c) 1)
-		(= (process-order jig2c) 4)
-		(= (swap-unstack-count jig2c bside) 1)
-		(= (swap-unstack-count jig2c fside) 0)
-		(= (swap-stack-count jig2c bside) 0)
-		(= (swap-stack-count jig2c fside) 1)
-
-		(in jig2b beluga1)
-		(part-of jig2b plA1)
-		(outgoing jig2b beluga2)
-		(= (size jig2b) 3)
-		(= (empty-size jig2b) 2)
-		(= (unload-order jig2b) 1)
-		(= (load-order jig2b) 3)
-		(= (process-order jig2b) 7)
-		(= (swap-unstack-count jig2b bside) 1)
-		(= (swap-unstack-count jig2b fside) 0)
-		(= (swap-stack-count jig2b bside) 0)
-		(= (swap-stack-count jig2b fside) 1)
-
-		(in jig2t beluga3)
-		(part-of jig2t plA1)
-		; (outgoing jig2t beluga2)
-		(= (size jig2t) 2)
-		(= (empty-size jig2t) 1)
-		(= (unload-order jig2t) 2)
-		; (= (load-order jig2t) 1)
-		(= (process-order jig2t) 1)
-		(= (swap-unstack-count jig2t bside) 1)
-		(= (swap-unstack-count jig2t fside) 0)
-		(= (swap-stack-count jig2t bside) 0)
-		(= (swap-stack-count jig2t fside) 1)
-
-
 		; RACKS
 		(atside rack1 bside)
 		(atside rack1 fside)
 		; (empty rack1)
-		(= (level rack1) 4)
+		(= (level rack1) 0)
 		(= (max-level rack1) 6)
-		(= (rack-in-use rack1) 1)
+		(= (rack-in-use rack1) 0)
 
 		(atside rack2 bside)
 		(atside rack2 fside)
 		; (empty rack2)
 		(= (level rack2) 1)
-		(= (max-level rack2) 4)
+		(= (max-level rack2) 16)
 		(= (rack-in-use rack2) 1)
 
 		(atside rack3 bside)
@@ -211,16 +213,16 @@
 		(= (rack-in-use rack3) 0)
 
 		; init rack
-		(in jig0c rack1)
-		(in jig0b rack1)
-		(clear jig0c bside)
+		(in jig0c rack2)
+		(in jig0b rack2)
+		(in jig0t rack2)
+
+		(clear jig0t bside)
 		(clear jig0b fside)
+		(on jig0t jig0c bside)
 		(on jig0c jig0b bside)
 		(on jig0b jig0c fside)
-
-		(in jig0t rack2)
-		(clear jig0t bside)
-		(clear jig0t fside)
+		(on jig0c jig0t fside)
 
 		;Production Lines
 		(= (delivery-process plA1) 7)
@@ -236,28 +238,26 @@
 		(empty jig1b)
 		(empty jig1t)
 		(empty jig1wl)
-		; (empty jig1wr)
+		(empty jig0wl)
 
-		(empty jig2c)
-		(empty jig2b)
-		; (empty jig2t)
+		(empty jig1c)
+		(empty jig0wr)
 
 		(in jig0b beluga1)
 		(in jig1b beluga1)
+		(in jig0t beluga1)
 
-		(in jig2b beluga2)
+		(in jig0wr beluga2)
 		(in jig0c beluga2)
 		(in jig1t beluga2)
 
 		; (in jig1wl beluga3)
-		; (in jig2c beluga3)
-
-		; (= (delivery-process plA1) 0)
+		; (in jig1c beluga3)
 
 		; (<= (total-swaps) 5)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (rack-in-use rack3))) 3)
 
-		(<= (total-swaps) 5)
+		; (<= (total-swaps) 5)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (+ (rack-in-use rack3) (rack-in-use rack4)))) 4)
 		
 	))
