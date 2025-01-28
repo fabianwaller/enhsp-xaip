@@ -3,9 +3,9 @@
 	(:domain beluga)
   (:objects
 		bt1 - truck
-		bt2 - truck
+		; bt2 - truck
 		ft1 - truck
-		ft2 - truck
+		; ft2 - truck
 
 		rack1 - rack
 		rack2 - rack
@@ -36,15 +36,15 @@
 		; TRUCKS
 		(empty bt1)
 		(atside bt1 bside)
-        
-		(empty bt2)
-		(atside bt2 bside)
+
+		; (empty bt2)
+		; (atside bt2 bside)
 
 		(empty ft1)
 		(atside ft1 fside)
 
-		(empty ft2)
-		(atside ft2 fside)
+		; (empty ft2)
+		; (atside ft2 fside)
 
 		(empty hanger1)
 
@@ -264,7 +264,7 @@
 		(in jig1wl beluga3)
 		(in jig1c beluga3)
 
-		; (<= (total-swaps) 5)
+		(<= (total-swaps) 10)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (rack-in-use rack3))) 3)
 
 		; (<= (total-swaps) 5)
