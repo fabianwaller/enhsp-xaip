@@ -3,20 +3,19 @@
 	(:domain beluga)
   (:objects
 		bt1 - truck
-		; bt2 - truck
+		bt2 - truck
 		ft1 - truck
-		; ft2 - truck
+		ft2 - truck
 
 		rack1 - rack
 		rack2 - rack
-		; rack3 - rack
-		; rack4 - rack
+		rack3 - rack
 
 		jig0c - jig
 		jig0b - jig
 		jig0t - jig
 		jig0wl - jig
-		jig0wr - jig
+		; jig0wr - jig
 
 		jig1c - jig
 		jig1b - jig
@@ -58,7 +57,7 @@
 		( = (to-process-parts beluga3) 0)
 
 		(= (unload-process beluga1) 3)
-		(= (load-process beluga1) 3)
+		(= (load-process beluga1) 2)
 
 		(= (unload-process beluga2) 3)
 		(= (load-process beluga2) 4)
@@ -69,15 +68,15 @@
 
 		; JIGS
 		; airplaine 0 (all empty)
-        (empty jig0wr)
-        (outgoing jig0wr beluga1)
-		(= (size jig0wr) 4)
-		(= (empty-size jig0wr) 4)
-        (= (load-order jig0wr) 3)		
-		(= (swap-unstack-count jig0wr bside) 0)
-		(= (swap-unstack-count jig0wr fside) 1)
-		(= (swap-stack-count jig0wr bside) 1)
-		(= (swap-stack-count jig0wr fside) 0)
+        ; (empty jig0wr)
+        ; (outgoing jig0wr beluga1)
+		; (= (size jig0wr) 4)
+		; (= (empty-size jig0wr) 4)
+        ; (= (load-order jig0wr) 3)		
+		; (= (swap-unstack-count jig0wr bside) 0)
+		; (= (swap-unstack-count jig0wr fside) 1)
+		; (= (swap-stack-count jig0wr bside) 1)
+		; (= (swap-stack-count jig0wr fside) 0)
 
 		(empty jig0c)
 		(outgoing jig0c beluga2)
@@ -201,21 +200,21 @@
 		(atside rack1 fside)
 		(empty rack1)
 		(= (level rack1) 0)
-		(= (max-level rack1) 12)
+		(= (max-level rack1) 6)
 		(= (rack-in-use rack1) 0)
 
 		(atside rack2 bside)
 		(atside rack2 fside)
 		; (empty rack2)
 		(= (level rack2) 1)
-		(= (max-level rack2) 16)
+		(= (max-level rack2) 6)
 		(= (rack-in-use rack2) 1)
 
 		; (atside rack3 bside)
 		; (atside rack3 fside)
 		; (empty rack3)
 		; (= (level rack3) 0)
-		; (= (max-level rack3) 12)
+		; (= (max-level rack3) 6)
 		; (= (rack-in-use rack3) 0)
 
 		; (atside rack4 bside)
@@ -228,14 +227,15 @@
 		; init rack
 		(in jig0c rack2)
 		(in jig0b rack2)
-		(in jig0wr rack2)
+		; (in jig0wr rack2)
 
-		(clear jig0wr bside)
+		(clear jig0c bside)
 		(clear jig0b fside)
-		(on jig0wr jig0c bside)
+
+		; (on jig0wr jig0c bside)
 		(on jig0c jig0b bside)
 		(on jig0b jig0c fside)
-		(on jig0c jig0wr fside)
+		; (on jig0c jig0wr fside)
 
 		;Production Lines
 		(= (delivery-process plA1) 7)
@@ -252,7 +252,6 @@
 		(empty jig1b)
 		(empty jig0t)
 
-		(in jig0wr beluga1)
 		(in jig0b beluga1)
 		(in jig1b beluga1)
 
@@ -265,13 +264,26 @@
 		(in jig0t beluga2)
 		(in jig1t beluga2)
 
-        (empty jig1wr)
+		; (in jig1wr beluga3)
+		; (in jig1wl beluga3)
+		; (in jig1c beluga3)
 
-		(in jig1wr beluga3)
-		(in jig1wl beluga3)
-		(in jig1c beluga3)
-
-		(<= (total-swaps) 10)
+		; (<= (total-swaps) 1)
+		; (<= (total-swaps) 2)
+		; (<= (total-swaps) 3)
+		; (<= (total-swaps) 4)
+		; (<= (total-swaps) 5)
+		; (<= (total-swaps) 6)
+		; (<= (total-swaps) 7)
+		; (<= (total-swaps) 8)
+		; (<= (total-swaps) 9)
+		; (<= (total-swaps) 10)
+		; (<= (total-swaps) 11)
+		; (<= (total-swaps) 12)
+		; (<= (total-swaps) 13)
+		; (<= (total-swaps) 14)
+		; (<= (total-swaps) 15)
+		; (<= (total-swaps) 16)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (rack-in-use rack3))) 3)
 
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (+ (rack-in-use rack3) (rack-in-use rack4)))) 4)
