@@ -10,6 +10,7 @@
 		rack1 - rack
 		rack2 - rack
 		rack3 - rack
+		rack4 - rack
 
 		jig0c - jig
 		jig0b - jig
@@ -68,6 +69,16 @@
 
 		; JIGS
 		; airplaine 0 (all empty)
+        (empty jig0wr)
+        (outgoing jig0wr beluga1)
+		(= (size jig0wr) 4)
+		(= (empty-size jig0wr) 4)
+        (= (load-order jig0wr) 3)		
+		(= (swap-unstack-count jig0wr bside) 0)
+		(= (swap-unstack-count jig0wr fside) 1)
+		(= (swap-stack-count jig0wr bside) 1)
+		(= (swap-stack-count jig0wr fside) 0)
+
 		(empty jig0c)
 		(outgoing jig0c beluga2)
 		(= (size jig0c) 2)
@@ -87,17 +98,6 @@
 		(= (swap-unstack-count jig0b fside) 1)
 		(= (swap-stack-count jig0b bside) 1)
 		(= (swap-stack-count jig0b fside) 0)
-
-		(empty jig0wr)
-        (outgoing jig0wr beluga1)
-		(= (size jig0wr) 4)
-		(= (empty-size jig0wr) 4)
-        (= (load-order jig0wr) 3)		
-		(= (swap-unstack-count jig0wr bside) 0)
-		(= (swap-unstack-count jig0wr fside) 1)
-		(= (swap-stack-count jig0wr bside) 1)
-		(= (swap-stack-count jig0wr fside) 0)
-
 
         ; incoming in beluga1
         (in jig0wl beluga1)
@@ -201,7 +201,7 @@
 		(atside rack1 fside)
 		; (empty rack1)
 		(= (level rack1) 0)
-		(= (max-level rack1) 6)
+		(= (max-level rack1) 12)
 		(= (rack-in-use rack1) 0)
 
 		(atside rack2 bside)
@@ -215,7 +215,14 @@
 		(atside rack3 fside)
 		(empty rack3)
 		(= (level rack3) 0)
-		(= (max-level rack3) 6)
+		(= (max-level rack3) 12)
+		(= (rack-in-use rack3) 0)
+
+		(atside rack3 bside)
+		(atside rack3 fside)
+		(empty rack3)
+		(= (level rack3) 0)
+		(= (max-level rack3) 12)
 		(= (rack-in-use rack3) 0)
 
 		; init rack
