@@ -9,8 +9,8 @@
 
 		rack1 - rack
 		rack2 - rack
-		rack3 - rack
-		rack4 - rack
+		; rack3 - rack
+		; rack4 - rack
 
 		jig0c - jig
 		jig0b - jig
@@ -162,7 +162,7 @@
 		(= (empty-size jig1wl) 4)
 		(= (unload-order jig1wl) 2)
 		(= (load-order jig1wl) 2)
-		(= (process-order jig1wl) 1)
+		(= (process-order jig1wl) 2)
 		(= (swap-unstack-count jig1wl bside) 1)
 		(= (swap-unstack-count jig1wl fside) 0)
 		(= (swap-stack-count jig1wl bside) 0)
@@ -190,7 +190,7 @@
 		(= (empty-size jig1wr) 4)
 		(= (unload-order jig1wr) 1)
 		(= (load-order jig1wr) 3)
-		(= (process-order jig1wr) 2)
+		(= (process-order jig1wr) 1)
 		(= (swap-unstack-count jig1wr bside) 1)
 		(= (swap-unstack-count jig1wr fside) 0)
 		(= (swap-stack-count jig1wr bside) 0)
@@ -199,7 +199,7 @@
 		; RACKS
 		(atside rack1 bside)
 		(atside rack1 fside)
-		; (empty rack1)
+		(empty rack1)
 		(= (level rack1) 0)
 		(= (max-level rack1) 12)
 		(= (rack-in-use rack1) 0)
@@ -211,19 +211,19 @@
 		(= (max-level rack2) 16)
 		(= (rack-in-use rack2) 1)
 
-		(atside rack3 bside)
-		(atside rack3 fside)
-		(empty rack3)
-		(= (level rack3) 0)
-		(= (max-level rack3) 12)
-		(= (rack-in-use rack3) 0)
+		; (atside rack3 bside)
+		; (atside rack3 fside)
+		; (empty rack3)
+		; (= (level rack3) 0)
+		; (= (max-level rack3) 12)
+		; (= (rack-in-use rack3) 0)
 
-		(atside rack3 bside)
-		(atside rack3 fside)
-		(empty rack3)
-		(= (level rack3) 0)
-		(= (max-level rack3) 12)
-		(= (rack-in-use rack3) 0)
+		; (atside rack4 bside)
+		; (atside rack4 fside)
+		; (empty rack4)
+		; (= (level rack4) 0)
+		; (= (max-level rack4) 12)
+		; (= (rack-in-use rack4) 0)
 
 		; init rack
 		(in jig0c rack2)
@@ -274,7 +274,6 @@
 		(<= (total-swaps) 10)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (rack-in-use rack3))) 3)
 
-		; (<= (total-swaps) 5)
         ; (<= (+ (rack-in-use rack1) (+ (rack-in-use rack2) (+ (rack-in-use rack3) (rack-in-use rack4)))) 4)
 		
 	))
